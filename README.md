@@ -1,70 +1,84 @@
-# Getting Started with Create React App
+# مشروع: مهامي ✅
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+تطبيق قائمة مهام بسيط (بالعربية) مبني باستخدام React و Material UI.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## ✨ الوصف
 
-### `npm start`
+"مهامي" هو تطبيق لإدارة المهام (ToDo) يدعم الإضافة، التعديل، الحذف، ووضع علامة إتمام على المهام. الواجهة باللغة العربية (RTL) وتُخزّن المهام محلياً في `localStorage` حتى بعد إعادة تحميل الصفحة.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🛠️ التقنيات المستخدمة
 
-### `npm test`
+- **React** (Create React App)
+- **Material UI (MUI v7)** مع **Emotion** للـ styling
+- **uuid** لإنشاء معرفات فريدة للمهمات
+- **localStorage** لتخزين المهام محلياً
+- مكتبات اختبار (موجودة في `package.json`) مثل `@testing-library/react`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## ✅ الميزات
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- إضافة مهمة جديدة (عنوان + وصف)
+- تعديل مهمة موجودة
+- حذف مهمة (مع حوار تأكيد)
+- تمييز المهمة كمُنجزة / إلغاء التمييز
+- فلترة المهام: الكل / المنجزة / غير المنجزة
+- إشعارات (Snackbar) للعمليات الناجحة
+- دعم RTL والعربية
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## 📁 بنية المشروع (مختصر)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- `public/` - ملفات ثابتة وملف `index.html`
+- `src/`
+  - `App.js` — مزوّد الثيمات والـ Context، ونقطة دخول للمكوّن الرئيسي `ToDoList`
+  - `TasksAPI.js` — بيانات أولية/أمثلة للمهام (غير مستخدمة بشكل افتراضي، لكن مفيدة للاختبار)
+  - `index.js` — نقطة رندرة React
+  - `components/`
+    - `ToDoList.js` — المكوّن الرئيسي لعرض وإضافة المهام
+    - `ToDo.js` — بطاقة مهمة واحدة (عرض، إتمام، تعديل، حذف)
+    - `MySnackBar.js` — snackbar لعرض الرسائل
+    - `contexts/`
+      - `ListTasksContext.js` — context لمشاركة حالة المهام بين المكوّنات
+      - `TostContext.js` — context للتحكم بالـ Snackbar
+    - `themeApp/ThemeContext.js` — تعريف الثيم والألوان
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## 🚀 تشغيل المشروع محلياً
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+1. تثبيت الحزم:
 
-## Learn More
+```bash
+npm install
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+2. تشغيل التطبيق في وضع التطوير:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```bash
+npm start
+```
 
-### Code Splitting
+افتح المتصفح على: http://localhost:3000
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+3. بناء نسخة الإنتاج:
 
-### Analyzing the Bundle Size
+```bash
+npm run build
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+4. تشغيل الاختبارات (إن وُجدت):
 
-### Making a Progressive Web App
+```bash
+npm test
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+---
 
-### Advanced Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
