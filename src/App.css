@@ -1,38 +1,36 @@
+@font-face {
+  font-family: 'Arb';
+  src: url(/public/font/NotoKufiArabic-Light.ttf);
+}
+
 .App {
+  width: 60%;
+  margin: auto;
   text-align: center;
+  direction: rtl;
+  position: relative;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.cardToDo,
+.icons {
+  transition: all 0.3s ease-in-out !important;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.icons:hover {
+  background-color: rgb(221, 221, 221) !important;
+}
+
+.cardToDo:hover {
+  transform: translateX(9px);
+  border-inline-end: 3px solid #c51162;
+}
+
+/* media */
+@media (max-width: 600px) {
+  .App {
+    width: 100%;
   }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+  .inputs{
+    width: 100% !important;
   }
 }

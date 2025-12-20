@@ -1,23 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import { ThemeProvider } from "@mui/material/styles";
+import "./App.css";
+import ToDoList from "./components/ToDoList";
+import { ListTasksContext } from "./components/contexts/ListTasksContext";
+// import {init} from './TasksAPI'
+import { useState } from "react";
+import { theme } from "./components/themeApp/ThemeContext";
+import {TostProvider } from "./components/contexts/TostContext";
 
 function App() {
+  const [ListTasks, setListTasks] = useState([]);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <ThemeProvider theme={theme}>
+        <TostProvider>
+          <ListTasksContext.Provider value={{ ListTasks, setListTasks }}>
+            <ToDoList />
+          </ListTasksContext.Provider>
+        </TostProvider>
+      </ThemeProvider>
     </div>
   );
 }
